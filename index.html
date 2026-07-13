@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack | Student Management Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>EduTrack</h2>
+
+        <nav>
+            <ul>
+                <li><a href="#">🏠 Dashboard</a></li>
+                <li><a href="#">🎓 Students</a></li>
+                <li><a href="#">👨‍🏫 Teachers</a></li>
+                <li><a href="#">📚 Courses</a></li>
+                <li><a href="#">📊 Reports</a></li>
+                <li><a href="#">⚙️ Settings</a></li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Header -->
+        <header>
+
+            <h1>Student Management Dashboard</h1>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search students..."
+            >
+
+            <div class="profile">
+
+                <img
+                    src="https://placehold.co/50"
+                    alt="Profile Picture"
+                >
+
+                <span>Adams</span>
+
+            </div>
+
+        </header>
+
+        <!-- Statistics -->
+        <section class="overview">
+
+            <div class="card" id="students-card">
+                <h3>Total Students</h3>
+                <p>520</p>
+            </div>
+
+            <div class="card" id="teachers-card">
+                <h3>Teachers</h3>
+                <p>42</p>
+            </div>
+
+            <div class="card" id="courses-card">
+                <h3>Courses</h3>
+                <p>18</p>
+            </div>
+
+            <div class="card" id="attendance-card">
+                <h3>Attendance</h3>
+                <p>94%</p>
+            </div>
+
+        </section>
+
+        <!-- Student Table -->
+
+        <section class="table-section">
+
+            <h2>Student Records</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>John Doe</td>
+                        <td>20</td>
+                        <td>Computer Science</td>
+                        <td><span class="status active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Mary James</td>
+                        <td>21</td>
+                        <td>Cyber Security</td>
+                        <td><span class="status active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Peter Smith</td>
+                        <td>22</td>
+                        <td>Software Engineering</td>
+                        <td><span class="status inactive">Inactive</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Sarah Johnson</td>
+                        <td>19</td>
+                        <td>Information Technology</td>
+                        <td><span class="status active">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Michael Brown</td>
+                        <td>23</td>
+                        <td>Data Science</td>
+                        <td><span class="status active">Active</span></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>&copy; 2026 EduTrack Dashboard | Enchanted Digital Academy Internship</p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
