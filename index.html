@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduTrack | Student Management Dashboard</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -19,12 +19,12 @@
 
         <nav>
             <ul>
-                <li><a href="#"><span class="icon">🏠</span><span class="link-text">Dashboard</span></a></li>
-                <li><a href="#"><span class="icon">🎓</span><span class="link-text">Students</span></a></li>
-                <li><a href="#"><span class="icon">👨‍🏫</span><span class="link-text">Teachers</span></a></li>
-                <li><a href="#"><span class="icon">📚</span><span class="link-text">Courses</span></a></li>
-                <li><a href="#"><span class="icon">📊</span><span class="link-text">Reports</span></a></li>
-                <li><a href="#"><span class="icon">⚙️</span><span class="link-text">Settings</span></a></li>
+                <li><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fa-solid fa-user-graduate"></i> Students</a></li>
+                <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i> Teachers</a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i> Courses</a></li>
+                <li><a href="#"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
             </ul>
         </nav>
 
@@ -92,6 +92,12 @@
 
         </section>
 
+        <section class="chart-section">
+            <h2>Students by Course</h2>
+
+            <canvas id="studentChart"></canvas>
+        </section>
+
         <!-- Student Table -->
 
         <section class="table-section">
@@ -103,6 +109,7 @@
                 <thead>
 
                     <tr>
+                        <th>Student ID</th>
                         <th>Name</th>
                         <th>Age</th>
                         <th>Course</th>
@@ -114,6 +121,7 @@
                 <tbody>
 
                     <tr>
+                        <td>ST001</td>
                         <td>John Doe</td>
                         <td>20</td>
                         <td>Computer Science</td>
@@ -121,6 +129,7 @@
                     </tr>
 
                     <tr>
+                        <td>ST002</td>
                         <td>Mary James</td>
                         <td>21</td>
                         <td>Cyber Security</td>
@@ -128,6 +137,7 @@
                     </tr>
 
                     <tr>
+                        <td>ST003</td>
                         <td>Peter Smith</td>
                         <td>22</td>
                         <td>Software Engineering</td>
@@ -135,6 +145,7 @@
                     </tr>
 
                     <tr>
+                        <td>ST004</td>
                         <td>Sarah Johnson</td>
                         <td>19</td>
                         <td>Information Technology</td>
@@ -142,6 +153,7 @@
                     </tr>
 
                     <tr>
+                        <td>ST005</td>
                         <td>Michael Brown</td>
                         <td>23</td>
                         <td>Data Science</td>
@@ -165,6 +177,6 @@
 </div>
 
 <script src="/js/script.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

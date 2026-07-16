@@ -55,3 +55,23 @@ document.addEventListener("click", (event) => {
         dropdown.classList.remove("show");
     }
 });
+
+const ctx = document.getElementById("studentChart");
+
+new Chart(ctx, {
+    type: "bar",
+    data: {
+        labels: [
+            "Computer Science",
+            "Cyber Security",
+            "Software Engineering",
+            "IT",
+            "Data Science"
+        ],
+
+        datasets: [{
+            label: "Students",
+            data: [120, 90, 80, 65, 55]
+        }]
+    }
+});
