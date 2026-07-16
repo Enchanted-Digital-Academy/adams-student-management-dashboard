@@ -65,13 +65,12 @@ new Chart(ctx, {
             "Computer Science",
             "Cyber Security",
             "Software Engineering",
-            "IT",
+            "Information Technology",
             "Data Science"
         ],
-
         datasets: [{
-            label: "Students",
-            data: [120, 90, 80, 65, 55]
+            label: "Students Enrolled",
+            data: [120, 95, 80, 65, 55]
         }]
     }
 });
