@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduTrack | Student Management Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -25,18 +25,18 @@
 
             <nav>
                 <ul>
-                    <li class="active"><a href="#"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i><span>Teachers</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-book"></i><span>Courses</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-line"></i><span>Reports</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+                    <li class="active"><a href="#dashboard" data-page="dashboard"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
+                    <li><a href="#students" data-page="students"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a></li>
+                    <li><a href="#teachers" data-page="teachers"><i class="fa-solid fa-chalkboard-user"></i><span>Teachers</span></a></li>
+                    <li><a href="#courses" data-page="courses"><i class="fa-solid fa-book"></i><span>Courses</span></a></li>
+                    <li><a href="#reports" data-page="reports"><i class="fa-solid fa-chart-line"></i><span>Reports</span></a></li>
+                    <li><a href="#settings" data-page="settings"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
                 </ul>
             </nav>
 
             <div class="sidebar-footer">
-                <p><i class="fa-regular fa-circle-question"></i> Help</p>
-                <p><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
+                <p id="helpBtn"><i class="fa-regular fa-circle-question"></i> Help</p>
+                <p id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
             </div>
         </aside>
 
@@ -47,7 +47,7 @@
             <header>
                 <div class="header-left">
                     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                        <i class="fa-solid fa-bars"></i>
+                        <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
                     </button>
                     <h1>Dashboard</h1>
                 </div>
@@ -56,6 +56,9 @@
                     <div class="search-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" id="search" placeholder="Search students..." />
+                        <button class="search-clear" id="searchClear" aria-label="Clear search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -66,16 +69,22 @@
 
                     <div class="profile-wrapper">
                         <div class="profile" id="profileToggle">
-                            <img src="https://placehold.co/40" alt="Profile" />
+                            <div class="profile-avatar">
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="18" cy="18" r="17" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+                                    <circle cx="18" cy="13" r="5" fill="#ffffff"/>
+                                    <path d="M7 28C7 23.5 11 21 18 21C25 21 29 23.5 29 28" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
                             <span class="profile-name">Adams</span>
                             <i class="fa-solid fa-chevron-down" id="chevronIcon"></i>
                         </div>
 
                         <div class="dropdown" id="dropdown">
-                            <a href="#"><i class="fa-regular fa-user"></i> View Profile</a>
-                            <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+                            <a href="#profile"><i class="fa-regular fa-user"></i> View Profile</a>
+                            <a href="#settings"><i class="fa-solid fa-gear"></i> Settings</a>
                             <hr />
-                            <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                            <a href="#" class="logout" id="dropdownLogout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                         </div>
                     </div>
                 </div>
@@ -83,8 +92,8 @@
 
             <!-- ===== STATS ===== -->
             <section class="stats">
-                <div class="stat-card" style="border-color: #2563eb;">
-                    <div class="stat-icon" style="background: #dbeafe; color: #2563eb;">
+                <div class="stat-card stat-card-primary">
+                    <div class="stat-icon stat-icon-primary">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <div class="stat-info">
@@ -93,8 +102,8 @@
                     </div>
                 </div>
 
-                <div class="stat-card" style="border-color: #22c55e;">
-                    <div class="stat-icon" style="background: #dcfce7; color: #22c55e;">
+                <div class="stat-card stat-card-success">
+                    <div class="stat-icon stat-icon-success">
                         <i class="fa-solid fa-chalkboard-user"></i>
                     </div>
                     <div class="stat-info">
@@ -103,8 +112,8 @@
                     </div>
                 </div>
 
-                <div class="stat-card" style="border-color: #f97316;">
-                    <div class="stat-icon" style="background: #ffedd5; color: #f97316;">
+                <div class="stat-card stat-card-warning">
+                    <div class="stat-icon stat-icon-warning">
                         <i class="fa-solid fa-book"></i>
                     </div>
                     <div class="stat-info">
@@ -113,8 +122,8 @@
                     </div>
                 </div>
 
-                <div class="stat-card" style="border-color: #ec4899;">
-                    <div class="stat-icon" style="background: #fce7f3; color: #ec4899;">
+                <div class="stat-card stat-card-danger">
+                    <div class="stat-icon stat-icon-danger">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
                     <div class="stat-info">
@@ -128,10 +137,10 @@
             <section class="chart-section">
                 <div class="chart-header">
                     <h2>Students by Course</h2>
-                    <select>
-                        <option>This Year</option>
-                        <option>This Month</option>
-                        <option>This Week</option>
+                    <select id="chartFilter">
+                        <option value="year">This Year</option>
+                        <option value="month">This Month</option>
+                        <option value="week">This Week</option>
                     </select>
                 </div>
                 <div class="chart-wrapper">
@@ -143,55 +152,55 @@
             <section class="table-section">
                 <div class="table-header">
                     <h2>Student Records</h2>
-                    <button class="btn-primary"><i class="fa-solid fa-plus"></i> Add Student</button>
+                    <button class="btn-primary" id="addStudentBtn"><i class="fa-solid fa-plus"></i> Add Student</button>
                 </div>
 
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th>Student ID</th>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Course</th>
-                                <th>Status</th>
+                                <th class="col-id">Student ID</th>
+                                <th class="col-name">Name</th>
+                                <th class="col-age">Age</th>
+                                <th class="col-course">Course</th>
+                                <th class="col-status">Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="studentTableBody">
                             <tr>
-                                <td><span class="badge">ST001</span></td>
-                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> John Doe</div></td>
-                                <td>20</td>
-                                <td>Computer Science</td>
-                                <td><span class="status active">Active</span></td>
+                                <td class="col-id"><span class="badge">ST001</span></td>
+                                <td class="col-name"><div class="user-cell"><div class="user-avatar">JD</div> John Doe</div></td>
+                                <td class="col-age">20</td>
+                                <td class="col-course">Computer Science</td>
+                                <td class="col-status"><span class="status active">Active</span></td>
                             </tr>
                             <tr>
-                                <td><span class="badge">ST002</span></td>
-                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Mary James</div></td>
-                                <td>21</td>
-                                <td>Cyber Security</td>
-                                <td><span class="status active">Active</span></td>
+                                <td class="col-id"><span class="badge">ST002</span></td>
+                                <td class="col-name"><div class="user-cell"><div class="user-avatar" style="background:#22c55e;">MJ</div> Mary James</div></td>
+                                <td class="col-age">21</td>
+                                <td class="col-course">Cyber Security</td>
+                                <td class="col-status"><span class="status active">Active</span></td>
                             </tr>
                             <tr>
-                                <td><span class="badge">ST003</span></td>
-                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Peter Smith</div></td>
-                                <td>22</td>
-                                <td>Software Engineering</td>
-                                <td><span class="status inactive">Inactive</span></td>
+                                <td class="col-id"><span class="badge">ST003</span></td>
+                                <td class="col-name"><div class="user-cell"><div class="user-avatar" style="background:#f97316;">PS</div> Peter Smith</div></td>
+                                <td class="col-age">22</td>
+                                <td class="col-course">Software Engineering</td>
+                                <td class="col-status"><span class="status inactive">Inactive</span></td>
                             </tr>
                             <tr>
-                                <td><span class="badge">ST004</span></td>
-                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Sarah Johnson</div></td>
-                                <td>19</td>
-                                <td>Information Technology</td>
-                                <td><span class="status active">Active</span></td>
+                                <td class="col-id"><span class="badge">ST004</span></td>
+                                <td class="col-name"><div class="user-cell"><div class="user-avatar" style="background:#ec4899;">SJ</div> Sarah Johnson</div></td>
+                                <td class="col-age">19</td>
+                                <td class="col-course">Information Technology</td>
+                                <td class="col-status"><span class="status active">Active</span></td>
                             </tr>
                             <tr>
-                                <td><span class="badge">ST005</span></td>
-                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Michael Brown</div></td>
-                                <td>23</td>
-                                <td>Data Science</td>
-                                <td><span class="status active">Active</span></td>
+                                <td class="col-id"><span class="badge">ST005</span></td>
+                                <td class="col-name"><div class="user-cell"><div class="user-avatar" style="background:#8b5cf6;">MB</div> Michael Brown</div></td>
+                                <td class="col-age">23</td>
+                                <td class="col-course">Data Science</td>
+                                <td class="col-status"><span class="status active">Active</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -200,13 +209,14 @@
 
             <!-- ===== FOOTER ===== -->
             <footer>
-                <p>&copy; 2026 EduTrack Dashboard | Enchanted Digital Academy Internship</p>
+                <p>&copy; <span id="currentYear">2026</span> EduTrack Dashboard</p>
             </footer>
 
         </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
+
