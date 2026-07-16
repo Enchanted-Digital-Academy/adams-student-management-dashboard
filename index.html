@@ -1,182 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduTrack | Student Management Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
-
 <body>
 
-<div class="container" id="container">
+    <!-- Mobile Overlay -->
+    <div class="overlay" id="overlay"></div>
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+    <div class="container" id="container">
 
-        <h2>EduTrack</h2>
-
-        <nav>
-            <ul>
-                <li><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fa-solid fa-user-graduate"></i> Students</a></li>
-                <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i> Teachers</a></li>
-                <li><a href="#"><i class="fa-solid fa-book"></i> Courses</a></li>
-                <li><a href="#"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
-                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
-            </ul>
-        </nav>
-
-    </aside>
-
-    <!-- Main Content -->
-    <main>
-
-        <!-- Header -->
-        <header>
-
-            <button id="sidebar-toggle">☰</button>
-
-            <h1>Student Management Dashboard</h1>
-
-            <input
-                type="text"
-                id="search"
-                placeholder="Search students..."
-            >
-
-            <button id="theme-toggle">🌙</button>
-
-            <div class="profile" id="profile">
-
-                <img
-                    src="https://placehold.co/50"
-                    alt="Profile Picture"
-                >
-
-                <span>Adams</span>
-
+        <!-- ========== SIDEBAR ========== -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>EduTrack</h2>
+                <button class="sidebar-close" id="sidebarClose">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
-            <div class="dropdown" id="dropdown">
-                <p>View Profile</p>
-                <p>Settings</p>
-                <p>Logout</p>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i><span>Teachers</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-book"></i><span>Courses</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i><span>Reports</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p><i class="fa-regular fa-circle-question"></i> Help</p>
+                <p><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
             </div>
+        </aside>
 
-        </header>
+        <!-- ========== MAIN ========== -->
+        <main>
 
-        <!-- Statistics -->
-        <section class="overview">
+            <!-- ===== HEADER ===== -->
+            <header>
+                <div class="header-left">
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
 
-            <div class="card" id="students-card">
-                <h3>Total Students</h3>
-                <p>520</p>
-            </div>
+                <div class="header-center">
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search" placeholder="Search students..." />
+                    </div>
+                </div>
 
-            <div class="card" id="teachers-card">
-                <h3>Teachers</h3>
-                <p>42</p>
-            </div>
+                <div class="header-right">
+                    <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon" id="themeIcon"></i>
+                    </button>
 
-            <div class="card" id="courses-card">
-                <h3>Courses</h3>
-                <p>18</p>
-            </div>
+                    <div class="profile-wrapper">
+                        <div class="profile" id="profileToggle">
+                            <img src="https://placehold.co/40" alt="Profile" />
+                            <span class="profile-name">Adams</span>
+                            <i class="fa-solid fa-chevron-down" id="chevronIcon"></i>
+                        </div>
 
-            <div class="card" id="attendance-card">
-                <h3>Attendance</h3>
-                <p>94%</p>
-            </div>
+                        <div class="dropdown" id="dropdown">
+                            <a href="#"><i class="fa-regular fa-user"></i> View Profile</a>
+                            <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+                            <hr />
+                            <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-        </section>
+            <!-- ===== STATS ===== -->
+            <section class="stats">
+                <div class="stat-card" style="border-color: #2563eb;">
+                    <div class="stat-icon" style="background: #dbeafe; color: #2563eb;">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Students</h3>
+                        <p>520</p>
+                    </div>
+                </div>
 
-        <section class="chart-section">
-            <h2>Students by Course</h2>
+                <div class="stat-card" style="border-color: #22c55e;">
+                    <div class="stat-icon" style="background: #dcfce7; color: #22c55e;">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Teachers</h3>
+                        <p>42</p>
+                    </div>
+                </div>
 
-            <canvas id="studentChart"></canvas>
-        </section>
+                <div class="stat-card" style="border-color: #f97316;">
+                    <div class="stat-icon" style="background: #ffedd5; color: #f97316;">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Courses</h3>
+                        <p>18</p>
+                    </div>
+                </div>
 
-        <!-- Student Table -->
+                <div class="stat-card" style="border-color: #ec4899;">
+                    <div class="stat-icon" style="background: #fce7f3; color: #ec4899;">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Attendance</h3>
+                        <p>94%</p>
+                    </div>
+                </div>
+            </section>
 
-        <section class="table-section">
+            <!-- ===== CHART ===== -->
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h2>Students by Course</h2>
+                    <select>
+                        <option>This Year</option>
+                        <option>This Month</option>
+                        <option>This Week</option>
+                    </select>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="studentChart"></canvas>
+                </div>
+            </section>
 
-            <h2>Student Records</h2>
+            <!-- ===== TABLE ===== -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>Student Records</h2>
+                    <button class="btn-primary"><i class="fa-solid fa-plus"></i> Add Student</button>
+                </div>
 
-            <table>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Course</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge">ST001</span></td>
+                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> John Doe</div></td>
+                                <td>20</td>
+                                <td>Computer Science</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge">ST002</span></td>
+                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Mary James</div></td>
+                                <td>21</td>
+                                <td>Cyber Security</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge">ST003</span></td>
+                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Peter Smith</div></td>
+                                <td>22</td>
+                                <td>Software Engineering</td>
+                                <td><span class="status inactive">Inactive</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge">ST004</span></td>
+                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Sarah Johnson</div></td>
+                                <td>19</td>
+                                <td>Information Technology</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge">ST005</span></td>
+                                <td><div class="user-cell"><img src="https://placehold.co/32" alt="avatar" /> Michael Brown</div></td>
+                                <td>23</td>
+                                <td>Data Science</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-                <thead>
+            <!-- ===== FOOTER ===== -->
+            <footer>
+                <p>&copy; 2026 EduTrack Dashboard | Enchanted Digital Academy Internship</p>
+            </footer>
 
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Course</th>
-                        <th>Status</th>
-                    </tr>
+        </main>
+    </div>
 
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>ST001</td>
-                        <td>John Doe</td>
-                        <td>20</td>
-                        <td>Computer Science</td>
-                        <td><span class="status active">Active</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>ST002</td>
-                        <td>Mary James</td>
-                        <td>21</td>
-                        <td>Cyber Security</td>
-                        <td><span class="status active">Active</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>ST003</td>
-                        <td>Peter Smith</td>
-                        <td>22</td>
-                        <td>Software Engineering</td>
-                        <td><span class="status inactive">Inactive</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>ST004</td>
-                        <td>Sarah Johnson</td>
-                        <td>19</td>
-                        <td>Information Technology</td>
-                        <td><span class="status active">Active</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>ST005</td>
-                        <td>Michael Brown</td>
-                        <td>23</td>
-                        <td>Data Science</td>
-                        <td><span class="status active">Active</span></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </section>
-
-        <!-- Footer -->
-
-        <footer>
-            <p>&copy; 2026 EduTrack Dashboard | Enchanted Digital Academy Internship</p>
-        </footer>
-
-    </main>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
