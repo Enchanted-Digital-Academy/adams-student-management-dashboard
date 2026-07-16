@@ -1,7 +1,6 @@
 /* ==========================================
    Google Font
 ========================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* ==========================================
@@ -45,6 +44,11 @@ ul {
     display: grid;
     grid-template-columns: 260px 1fr;
     min-height: 100vh;
+    transition: 0.3s ease;
+}
+
+.container.sidebar-collapsed {
+    grid-template-columns: 80px 1fr;
 }
 
 /* ==========================================
@@ -55,6 +59,7 @@ ul {
     background: linear-gradient(180deg, #1e293b, #0f172a);
     color: white;
     padding: 30px 20px;
+    transition: 0.3s ease;
 }
 
 .sidebar h2 {
@@ -97,6 +102,9 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 35px;
+    position: relative;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 header h1 {
@@ -122,6 +130,7 @@ header input {
     display: flex;
     align-items: center;
     gap: 12px;
+    cursor: pointer;
 }
 
 .profile img {
@@ -228,8 +237,6 @@ tbody tr:hover {
     background: #f8fafc;
 }
 
-/* Optional status badge styling */
-
 .status {
     padding: 6px 14px;
     border-radius: 20px;
@@ -260,6 +267,107 @@ footer {
 }
 
 /* ==========================================
+   INTERACTIVE FEATURES
+========================================== */
+
+/* DARK MODE */
+
+body.dark {
+    background: #111827;
+    color: white;
+}
+
+body.dark header h1,
+body.dark .card p,
+body.dark th,
+body.dark footer {
+    color: white;
+}
+
+body.dark .card,
+body.dark .table-section,
+body.dark header input,
+body.dark .dropdown {
+    background: #1f2937;
+    color: white;
+}
+
+body.dark tbody tr:hover {
+    background: #374151;
+}
+
+/* SIDEBAR */
+
+.sidebar.hidden {
+    width: 80px;
+    overflow: hidden;
+}
+
+.sidebar.hidden h2 {
+    font-size: 0;
+}
+
+.sidebar.hidden a {
+    text-align: center;
+    padding: 14px 0;
+}
+
+.sidebar.hidden .link-text {
+    display: none;
+}
+
+.sidebar.hidden .icon {
+    font-size: 18px;
+}
+
+/* BUTTONS */
+
+#theme-toggle,
+#sidebar-toggle {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    transition: 0.3s ease;
+}
+
+#theme-toggle:hover,
+#sidebar-toggle:hover {
+    transform: translateY(-2px);
+}
+
+/* DROPDOWN */
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 150px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    z-index: 100;
+}
+
+.dropdown p {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dropdown p:hover {
+    color: #2563eb;
+}
+
+.show {
+    display: block;
+}
+
+/* ==========================================
    Responsive Design
 ========================================== */
 
@@ -277,14 +385,9 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .sidebar {
-        display: none;
-    }
-
     header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
     }
 
     header input {
@@ -300,4 +403,7 @@ footer {
         overflow-x: auto;
     }
 
+    .sidebar.hidden {
+        display: none;
+    }
 }

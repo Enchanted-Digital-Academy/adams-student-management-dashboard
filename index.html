@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduTrack | Student Management Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div class="container" id="container">
 
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
 
         <h2>EduTrack</h2>
 
         <nav>
             <ul>
-                <li><a href="#">🏠 Dashboard</a></li>
-                <li><a href="#">🎓 Students</a></li>
-                <li><a href="#">👨‍🏫 Teachers</a></li>
-                <li><a href="#">📚 Courses</a></li>
-                <li><a href="#">📊 Reports</a></li>
-                <li><a href="#">⚙️ Settings</a></li>
+                <li><a href="#"><span class="icon">🏠</span><span class="link-text">Dashboard</span></a></li>
+                <li><a href="#"><span class="icon">🎓</span><span class="link-text">Students</span></a></li>
+                <li><a href="#"><span class="icon">👨‍🏫</span><span class="link-text">Teachers</span></a></li>
+                <li><a href="#"><span class="icon">📚</span><span class="link-text">Courses</span></a></li>
+                <li><a href="#"><span class="icon">📊</span><span class="link-text">Reports</span></a></li>
+                <li><a href="#"><span class="icon">⚙️</span><span class="link-text">Settings</span></a></li>
             </ul>
         </nav>
 
@@ -36,6 +36,8 @@
         <!-- Header -->
         <header>
 
+            <button id="sidebar-toggle">☰</button>
+
             <h1>Student Management Dashboard</h1>
 
             <input
@@ -44,7 +46,9 @@
                 placeholder="Search students..."
             >
 
-            <div class="profile">
+            <button id="theme-toggle">🌙</button>
+
+            <div class="profile" id="profile">
 
                 <img
                     src="https://placehold.co/50"
@@ -53,6 +57,12 @@
 
                 <span>Adams</span>
 
+            </div>
+
+            <div class="dropdown" id="dropdown">
+                <p>View Profile</p>
+                <p>Settings</p>
+                <p>Logout</p>
             </div>
 
         </header>
@@ -147,16 +157,14 @@
         <!-- Footer -->
 
         <footer>
-
             <p>&copy; 2026 EduTrack Dashboard | Enchanted Digital Academy Internship</p>
-
         </footer>
 
     </main>
 
 </div>
 
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 </html>
